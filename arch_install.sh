@@ -65,12 +65,12 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      sxiv mpv zathura zathura-pdf-mupdf ffmpeg imagemagick  \
      fzf man-db xwallpaper python-pywal unclutter xclip maim \
      zip unzip unrar p7zip xdotool brightnessctl  \
-     dosfstools ntfs-3g git sxhkd zsh  pipewire pipewire-pulse \
+     dosfstools ntfs-3g git sxhkd zsh  pulseaudio pulseaudio-pulse \
       rsync qutebrowser dash \
-     xcompmgr libnotify dunst slock jq aria2 cowsay \
-     dhcpcd connman wpa_supplicant rsync pamixer mpd ncmpcpp \
+     picom libnotify dunst slock jq aria2 cowsay \
+     dhcpcd connman wpa_supplicant rsync pamixer  \
      zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig \
-     bluez bluez-utils lightdm
+     bluez bluez-utils lightdm networkmanager
 
 systemctl enable NetworkManager.service 
 systemctl enable lightdm.service
