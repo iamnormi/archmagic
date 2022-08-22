@@ -140,21 +140,6 @@ cd ~ ; sudo mv -v bat /usr/local/bin/ ; cd ~ ; rm -vrf bat.zip
 #setup
 cd /usr/local/bin/ ; sudo chmod +x bat ; sudo ./bat -t 60 ; sudo ./bat -p 60
 
-#install Telegram from https://github.com/telegramdesktop/tdesktop/releases/ 
-#https://desktop.telegram.org/
-cd ~
-TG_VER=$(curl -s "https://api.github.com/repos/telegramdesktop/tdesktop/releases/latest" | grep -Po '"tag_name": "v\K[0-9.]+')
-curl -Lo tsetup.tar.xz "https://github.com/telegramdesktop/tdesktop/releases/download/v${TG_VER}/tsetup.${TG_VER}.tar.xz"
-tar -xvf tsetup.tar.xz ; mkdir -pv ~/.telegram ; cp -vrf Telegram/* ~/.telegram ; cd ; rm -vrf tsetup.tar.xz ; rm -vrf Telegram ; cd
-cd ~
-
-#install xdm from https://github.com/subhra74/xdm/releases
-cd ~
-XDM_VER=$(curl -s "https://api.github.com/repos/subhra74/xdm/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-curl -Lo xdm.tar.xz "https://github.com/subhra74/xdm/releases/download/${XDM_VER}/xdm-setup-${XDM_VER}.tar.xz"
-tar -xvf xdm.tar.xz ; sudo bash install.sh ; rm -v install.sh readme.txt xdm.tar.xz ; cd
-
-
 #Setup Intel itGPU
 sudo pacman -Syu xf86-video-intel vulkan-intel
 
@@ -186,10 +171,6 @@ VDPAU_DRIVER=va_gl
 
 sudo pacman -Sy  axel git curl unzip 
 
-#install ms-fonts
-cd ; pikaur -Syu ttf-ms-win11-auto
-cd ttf-ms-win11-auto ; makepkg -si
-
 #gtk theme 'dracula'
 cd /usr/share/themes ; pwd ;sudo axel https://github.com/dracula/gtk/releases/download/v3.0/Dracula.tar.xz ; sudo tar -xvf Dracula.tar.xz ; sudo rm -v *.tar.xz ; cd
 
@@ -211,15 +192,8 @@ cd ; git clone https://github.com/dracula/mousepad.git && cd mousepad ; mkdir -p
 cd /usr/share/backgrounds ; sudo axel https://github.com/dracula/wallpaper/raw/master/arch.png ; cd
 
 
-#lexend font
-cd ; curl -Lo lexend.zip https://fonts.google.com/download\?family\=Lexend 
-cd ; unzip -d lexend lexend.zip
-cd ; sudo mkdir -pv /usr/share/fonts/truetype/lexend ; sudo cp -vrf ~/lexend/static/* /usr/share/fonts/truetype/lexend
-cd ; rm -vrf lexend*
-
-
 cd
-pikaur -S libxft-bgra-git yt-dlp-drop-in nerd-fonts-jetbrains-mono update-grub ytfzf
+pikaur -S libxft-bgra-git yt-dlp-drop-in nerd-fonts-jetbrains-mono update-grub ytfzf lexend-fonts-git xdman telegram-desktop-bin
 mkdir dl dox imp music pix pub code
 
 ln -s ~/.config/shell/profile .zprofile
