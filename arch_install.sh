@@ -62,15 +62,19 @@ reflector -c "IN" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
 
 pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
      noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
-     sxiv mpv zathura zathura-pdf-mupdf ffmpeg imagemagick  \
-     fzf man-db xwallpaper python-pywal unclutter xclip maim \
-     zip unzip unrar p7zip xdotool brightnessctl  \
+     sxiv mpv zathura zathura-pdf-poppler ffmpeg virtualbox virtualbox-guest-iso \
+     fzf man-db xwallpaper python-pywal unclutter xclip maim pulseaudio-bluetooth bluez neovim \
+     zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools \
      dosfstools ntfs-3g git sxhkd zsh  pulseaudio pulseaudio-pulse \
-      rsync qutebrowser dash \
-     picom libnotify dunst slock jq aria2 cowsay \
-     dhcpcd connman wpa_supplicant rsync pamixer  \
+     qutebrowser dash  python3-pip libxft-bgra make fakeroot patch \
+     picom libnotify dunst slock jq aria2 cowsay lightdm lightdm-gtk-greeter-settings \
+     dhcpcd connman wpa_supplicant rsync pamixer \
      zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig \
-     bluez bluez-utils lightdm networkmanager
+     bluez bluez-utils networkmanager ncdu curl elinks vim  rofi \
+     android-tools android-file-transfer tree  \
+     virtualbox-host-modules-arch fzf
+
+
 
 systemctl enable NetworkManager.service 
 systemctl enable lightdm.service
@@ -99,6 +103,7 @@ cp -vrf ~/.local/src/dotfiles/.local/bin/ ~/.local/
 sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 sudo cp -vrf ~/.local/src/dotfile/etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 sudo cp -vrf ~/.local/src/dotfiles/etc/default/grub /etc/default/grub
+sudo mkdir /usr/share/xsessions
 sudo touch /usr/share/xsessions/dwm.desktop
 sudo echo "[Desktop Entry]" > /usr/share/xsessions/dwm.desktop
 sudo echo "Name=DWM" >> /usr/share/xsessions/dwm.desktop
