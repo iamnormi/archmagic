@@ -220,7 +220,6 @@ cd ; rm -vrf lexend*
 
 cd
 pikaur -S libxft-bgra-git yt-dlp-drop-in nerd-fonts-jetbrains-mono update-grub ytfzf
-sudo update-grub
 mkdir dl dox imp music pix pub code
 
 ln -s ~/.config/shell/profile .zprofile
