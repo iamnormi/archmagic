@@ -99,13 +99,13 @@ cp -vrf ~/.local/src/dotfiles/.local/bin/ ~/.local/
 sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 sudo cp -vrf ~/.local/src/dotfile/etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 sudo cp -vrf ~/.local/src/dotfiles/etc/default/grub /etc/default/grub
+sudo cp -vrf ~/.local/src/dotfiles/etc/pacman.conf /etc/pacman.conf
 sudo mkdir /usr/share/xsessions
 sudo touch /usr/share/xsessions/dwm.desktop
 sudo echo "[Desktop Entry]" > /usr/share/xsessions/dwm.desktop
 sudo echo "Name=DWM" >> /usr/share/xsessions/dwm.desktop
 sudo echo "Exec=dwm" >> /usr/share/xsessions/dwm.desktop
-sudo echo "ILoveCandy" >> /etc/pacman.conf
-sudo echo "Color"     >> /etc/pacman.conf
+
 
 # dwm: Window Manager
 git clone --depth=1 https://github.com/iamvk1437k/dwm.git ~/.local/src/dwm
