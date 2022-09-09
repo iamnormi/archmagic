@@ -66,13 +66,13 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      fzf man-db xwallpaper python-pywal unclutter xclip maim pulseaudio-bluetooth bluez neovim \
      zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools \
      dosfstools ntfs-3g git sxhkd zsh  pulseaudio pulseaudio-pulse \
-     qutebrowser dash  python3-pip libxft-bgra make fakeroot patch \
+     qutebrowser dash  python-pip  make fakeroot patch \
      picom libnotify dunst slock jq aria2 cowsay lightdm lightdm-gtk-greeter-settings \
      dhcpcd connman wpa_supplicant rsync pamixer \
      zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig \
      bluez bluez-utils networkmanager ncdu curl elinks vim  rofi \
      android-tools android-file-transfer tree  \
-     virtualbox-host-modules-arch fzf
+     virtualbox-host-modules-arch
 
 
 
@@ -193,7 +193,7 @@ cd /usr/share/backgrounds ; sudo axel https://github.com/dracula/wallpaper/raw/m
 
 
 cd
-pikaur -S libxft-bgra-git yt-dlp-drop-in nerd-fonts-jetbrains-mono update-grub ytfzf lexend-fonts-git xdman telegram-desktop-bin
+pikaur -S libxft-bgra-git yt-dlp-drop-in nerd-fonts-jetbrains-mono update-grub ytfzf lexend-fonts-git xdman telegram-desktop-bin 
 mkdir dl dox imp music pix pub code
 
 ln -s ~/.config/shell/profile .zprofile
