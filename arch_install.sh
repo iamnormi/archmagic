@@ -70,7 +70,7 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      picom libnotify dunst slock jq aria2 cowsay lightdm lightdm-gtk-greeter-settings \
      dhcpcd connman wpa_supplicant rsync pamixer \
      zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig \
-     bluez bluez-utils networkmanager ncdu curl elinks vim  rofi \
+     bluez bluez-utils networkmanager ncdu curl elinks vim \
      android-tools android-file-transfer tree  \
      virtualbox-host-modules-arch
 
@@ -169,28 +169,17 @@ VDPAU_DRIVER=va_gl
 
 ###theming###
 
-sudo pacman -Sy  axel git curl unzip 
+sudo pacman -Sy  aria2 git curl unzip 
 
 #gtk theme 'dracula'
-cd /usr/share/themes ; pwd ;sudo axel https://github.com/dracula/gtk/releases/download/v3.0/Dracula.tar.xz ; sudo tar -xvf Dracula.tar.xz ; sudo rm -v *.tar.xz ; cd
+cd /usr/share/themes ; pwd ;sudo aria2c https://github.com/dracula/gtk/releases/download/v3.0/Dracula.tar.xz ; sudo tar -xvf Dracula.tar.xz ; sudo rm -v *.tar.xz ; cd
 
 #icons 'dracula-icons' & #cursor theme 'dracula-cursors'
-cd /usr/share/icons ; pwd ; sudo axel https://github.com/dracula/gtk/releases/download/v3.0/Dracula-cursors.tar.xz ; sudo git clone https://github.com/m4thewz/dracula-icons ; sudo rm -vrf dracula-icons/.git ; sudo rm -v dracula-icons/Preview.png ; sudo tar -vxf Dracula-cursors.tar.xz ; sudo rm -v *.tar.xz ; cd
+cd /usr/share/icons ; pwd ; sudo aria2c https://github.com/dracula/gtk/releases/download/v3.0/Dracula-cursors.tar.xz ; sudo git clone https://github.com/m4thewz/dracula-icons ; sudo rm -vrf dracula-icons/.git ; sudo rm -v dracula-icons/Preview.png ; sudo tar -vxf Dracula-cursors.tar.xz ; sudo rm -v *.tar.xz ; cd
 sudo gtk-update-icon-cache /usr/share/icons/dracula-icons/
 
-#xfce4-terminal "Dracula"
-cd ; git clone https://github.com/dracula/xfce4-terminal.git ; mkdir -pv ~/.local/share/xfce4/terminal/colorschemes ; cd xfce4-terminal ; cp -vrf Dracula.theme ~/.local/share/xfce4/terminal/colorschemes ; cd ; rm -vrf xfce4-terminal ; cd
-
-#rofi 'dracula'
-cd ; git clone https://github.com/dracula/rofi ; mkdir ~/.config/rofi ; cp -vrf rofi/theme/config1.rasi ~/.config/rofi/config.rasi ; cd ; rm -vrf rofi ; cd
-
-
-#mousepad 'dracula'
-cd ; git clone https://github.com/dracula/mousepad.git && cd mousepad ; mkdir -pv "$HOME/.local/share/gtksourceview-4/styles" ; cp dracula.xml $HOME/.local/share/gtksourceview-4/styles ; cd ; rm -vrf mousepad ; cd
-
 #wallpaper
-cd /usr/share/backgrounds ; sudo axel https://github.com/dracula/wallpaper/raw/master/arch.png ; cd
-
+cd /usr/share/backgrounds ; sudo aria2c https://github.com/dracula/wallpaper/raw/master/arch.png ; cd
 
 cd
 pikaur -S libxft-bgra-git yt-dlp-drop-in nerd-fonts-jetbrains-mono update-grub ytfzf lexend-fonts-git xdman telegram-desktop-bin 
@@ -198,7 +187,9 @@ mkdir dl dox imp music pix pub code
 
 ln -s ~/.config/shell/profile .zprofile
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-mv ~/.oh-my-zsh ~/.config/zsh/oh-my-zsh
-rm ~/.zshrc ~/.zsh_history
-ln -sh ~/.config/zsh/.zshrc ~/.zshrc
+
+read -p "After the Installation oh-my-zsh paste your clipboard content!... press 'y' if OK" answer
+if [[ $answer = y ]] ; then
+echo  "mv ~/.oh-my-zsh ~/.config/zsh/oh-my-zsh ; rm ~/.zshrc ~/.zsh_history ; ln -sh ~/.config/zsh/.zshrc ~/.zshrc" |  xclip -selection clipboard
+fi
 exit
