@@ -108,7 +108,8 @@ sudo touch /usr/share/xsessions/dwm.desktop
 sudo echo "[Desktop Entry]" > /usr/share/xsessions/dwm.desktop
 sudo echo "Name=DWM" >> /usr/share/xsessions/dwm.desktop
 sudo echo "Exec=dwm" >> /usr/share/xsessions/dwm.desktop
-
+sudo echo "ILoveCandy" >> /etc/pacman.conf
+sudo echo "Color"     >> /etc/pacman.conf
 
 # dwm: Window Manager
 git clone --depth=1 https://github.com/iamvk1437k/dwm.git ~/.local/src/dwm
