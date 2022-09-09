@@ -65,7 +65,7 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      sxiv mpv zathura zathura-pdf-poppler ffmpeg virtualbox virtualbox-guest-iso \
      fzf man-db xwallpaper python-pywal unclutter xclip maim pulseaudio-bluetooth bluez neovim \
      zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools \
-     dosfstools ntfs-3g git sxhkd zsh  pulseaudio pulseaudio-pulse \
+     dosfstools ntfs-3g git sxhkd zsh  pulseaudio \
      qutebrowser dash  python-pip  make fakeroot patch \
      picom libnotify dunst slock jq aria2 cowsay lightdm lightdm-gtk-greeter-settings \
      dhcpcd connman wpa_supplicant rsync pamixer \
