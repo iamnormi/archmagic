@@ -61,7 +61,7 @@ pacman -Sy reflector
 reflector -c "IN" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
 
 pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
-     noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
+     noto-fonts  ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
      sxiv mpv zathura zathura-pdf-poppler ffmpeg virtualbox virtualbox-guest-iso \
      fzf man-db xwallpaper python-pywal unclutter xclip maim pulseaudio-bluetooth bluez neovim \
      zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools \
