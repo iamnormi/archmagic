@@ -69,7 +69,7 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      qutebrowser dash  python-pip  make fakeroot patch virtualbox-host-modules-arch \
      picom libnotify dunst slock jq aria2 cowsay  android-tools android-file-transfer tree \
      dhcpcd connman wpa_supplicant rsync pamixer bluez bluez-utils networkmanager ncdu curl \
-     zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig elinks vim 
+     zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig elinks vim ueberzug
      
 
 systemctl enable NetworkManager.service 
@@ -97,6 +97,7 @@ git clone --depth=1 https://github.com/iamvk1437k/dotfiles ~/.local/src/dotfiles
 rm -vrf ~/.config ; cp -vrf ~/.local/src/dotfiles/.config/ ~/
 cp -vrf ~/.local/src/dotfiles/.local/bin/ ~/.local/
 sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
+sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/20-intel.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 sudo cp -vrf ~/.local/src/dotfile/etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 sudo cp -vrf ~/.local/src/dotfiles/etc/default/grub /etc/default/grub
 sudo cp -vrf ~/.local/src/dotfiles/etc/pacman.conf /etc/pacman.conf
@@ -175,17 +176,19 @@ cd /usr/share/themes ; pwd ;sudo aria2c https://github.com/dracula/gtk/releases/
 cd /usr/share/icons ; pwd ; sudo aria2c https://github.com/dracula/gtk/releases/download/v3.0/Dracula-cursors.tar.xz ; sudo git clone https://github.com/m4thewz/dracula-icons ; sudo rm -vrf dracula-icons/.git ; sudo rm -v dracula-icons/Preview.png ; sudo tar -vxf Dracula-cursors.tar.xz ; sudo rm -v *.tar.xz ; cd
 sudo gtk-update-icon-cache /usr/share/icons/dracula-icons/
 
+#lexend font
+cd ; curl -Lo lexend.zip https://fonts.google.com/download\?family\=Lexend ;  cd ; unzip -d lexend lexend.zip ; cd ; sudo mkdir -pv /usr/share/fonts/truetype/lexend ; sudo cp -vrf ~/lexend/static/* /usr/share/fonts/truetype/lexend ; cd ; rm -vrf lexend*
+
+
 #wallpaper
-cd /usr/share/backgrounds ; sudo aria2c https://github.com/dracula/wallpaper/raw/master/arch.png ; cd
+sudo mkdir /usr/share/backgrounds  ; cd /usr/share/backgrounds ; sudo aria2c https://github.com/dracula/wallpaper/raw/master/arch.png ; cd
 
 cd
-pikaur -S libxft-bgra-git yt-dlp-drop-in nerd-fonts-jetbrains-mono update-grub ytfzf lexend-fonts-git xdman telegram-desktop-bin 
+pikaur -S yt-dlp-drop-in nerd-fonts-jetbrains-mono ytfzf lexend-fonts-git xdman telegram-desktop-bin librewolf-bin
 mkdir dl dox imp music pix pub code
 
-read -p "After the Installation oh-my-zsh paste your clipboard content!... press 'y' if OK" answer
-if [[ $answer = y ]] ; then
+echo "paste it after installation of oh-my-zsh"
 echo  "mv ~/.oh-my-zsh ~/.config/zsh/oh-my-zsh ; rm ~/.zshrc ~/.zsh_history ; ln -sh ~/.config/zsh/.zshrc ~/.zshrc" |  xclip -selection clipboard
-fi
 
 
 ln -s ~/.config/shell/profile .zprofile
