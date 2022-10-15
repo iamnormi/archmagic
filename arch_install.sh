@@ -67,7 +67,7 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools \
      dosfstools ntfs-3g git sxhkd zsh  pulseaudio firefox lightdm lightdm-gtk-greeter-settings \
      qutebrowser dash  python-pip  make fakeroot patch virtualbox-host-modules-arch \
-     picom libnotify dunst slock jq aria2 cowsay  android-tools android-file-transfer tree \
+     picom libnotify dunst slock jq aria2 cowsay  android-tools android-file-transfer tree lsd \
      dhcpcd connman wpa_supplicant rsync pamixer bluez bluez-utils networkmanager ncdu curl \
      zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig elinks vim ueberzug \
      gvfs gvfs-afc gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb  gvfs-goa gvfs-google thunar
