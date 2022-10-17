@@ -1,7 +1,7 @@
 # == MY ARCH SETUP INSTALLER == #
 #part1
 printf '\033c'
-echo "Welcome to bugswriter's arch installer script"
+echo "Welcome to iamvk1437k's arch installer script"
 sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 15/" /etc/pacman.conf
 pacman --noconfirm -Sy archlinux-keyring reflector
 sudo reflector -c "IN" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
@@ -97,6 +97,7 @@ cd $HOME
 git clone --depth=1 https://github.com/iamvk1437k/dotfiles ~/.local/src/dotfiles
 rm -vrf ~/.config ; cp -vrf ~/.local/src/dotfiles/.config/ ~/
 cp -vrf ~/.local/src/dotfiles/.local/bin/ ~/.local/
+sudo mv -vf ~/.local/bin/dwm_bar /usr/local/bin
 sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/20-intel.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 sudo cp -vrf ~/.local/src/dotfile/etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
