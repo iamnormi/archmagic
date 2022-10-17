@@ -121,10 +121,6 @@ sudo make -C ~/.local/src/st install
 git clone --depth=1 https://github.com/iamvk1437k/dmenu.git ~/.local/src/dmenu
 sudo make -C ~/.local/src/dmenu install
 
-# dwmblocks: Status bar for dwm
-git clone --depth=1 https://github.com/iamvk1437k/dwmblocks.git ~/.local/src/dwmblocks
-sudo make -C ~/.local/src/dwmblocks install
-
 # pikaur: AUR helper
 git clone https://aur.archlinux.org/pikaur.git
 cd pikaur
