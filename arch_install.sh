@@ -189,7 +189,7 @@ echo "paste it after installation of oh-my-zsh"
 echo  "mv ~/.oh-my-zsh ~/.config/zsh/oh-my-zsh ; rm ~/.zshrc ~/.zsh_history ; ln -sh ~/.config/zsh/.zshrc ~/.zshrc" |  xclip -selection clipboard
 
 
-ln -s ~/.config/shell/profile .zprofile
+ln -s ~/.config/shell/profile .xprofile
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 exit
