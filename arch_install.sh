@@ -190,6 +190,7 @@ echo  "mv ~/.oh-my-zsh ~/.config/zsh/oh-my-zsh ; rm ~/.zshrc ~/.zsh_history ; ln
 
 
 ln -s ~/.config/shell/profile .xprofile
+ln -s ~/.config/vim/vimrc ~/.vimrc
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 exit
