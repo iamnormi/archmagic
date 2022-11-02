@@ -62,7 +62,7 @@ reflector -c "IN" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
 
 pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
      noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
-     sxiv mpv zathura zathura-pdf-poppler ffmpeg virtualbox virtualbox-guest-iso \
+     sxiv mpv zathura zathura-pdf-poppler ffmpeg virtualbox virtualbox-guest-iso firefox \
      fzf man-db xwallpaper python-pywal unclutter xclip maim pulseaudio-bluetooth bluez neovim \
      zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools \
      dosfstools ntfs-3g git sxhkd zsh  pulseaudio firefox lightdm lightdm-gtk-greeter-settings \
@@ -182,7 +182,7 @@ cd ; curl -Lo lexend.zip https://fonts.google.com/download\?family\=Lexend ;  cd
 sudo mkdir /usr/share/backgrounds  ; cd /usr/share/backgrounds ; sudo aria2c https://github.com/dracula/wallpaper/raw/master/arch.png ; cd
 
 cd
-pikaur -S yt-dlp-drop-in nerd-fonts-jetbrains-mono ytfzf lexend-fonts-git xdman telegram-desktop-bin librewolf-bin
+pikaur -S yt-dlp-drop-in nerd-fonts-jetbrains-mono ytfzf lexend-fonts-git xdman telegram-desktop-bin
 mkdir dl dox imp music pix pub code
 
 echo "paste it after installation of oh-my-zsh"
