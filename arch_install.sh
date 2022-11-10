@@ -64,7 +64,7 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
      sxiv mpv zathura zathura-pdf-poppler ffmpeg virtualbox virtualbox-guest-iso firefox \
      fzf man-db xwallpaper python-pywal unclutter xclip maim pulseaudio-bluetooth bluez neovim \
-     zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools \
+     zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools lsd \
      dosfstools ntfs-3g git sxhkd zsh  pulseaudio firefox lightdm lightdm-gtk-greeter-settings \
      qutebrowser dash  python-pip  make fakeroot patch virtualbox-host-modules-arch \
      picom libnotify dunst slock jq aria2 cowsay  android-tools android-file-transfer tree lsd \
