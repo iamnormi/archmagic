@@ -63,15 +63,16 @@ reflector -c "IN" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
 pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
      noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
      sxiv mpv zathura zathura-pdf-poppler ffmpeg virtualbox virtualbox-guest-iso firefox \
-     fzf man-db xwallpaper python-pywal unclutter xclip maim pulseaudio-bluetooth bluez neovim \
+     fzf man-db xwallpaper  unclutter xclip maim pulseaudio-bluetooth bluez neovim \
      zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools lsd \
      dosfstools ntfs-3g git sxhkd zsh  pulseaudio firefox lightdm lightdm-gtk-greeter-settings \
      qutebrowser dash  python-pip  make fakeroot patch virtualbox-host-modules-arch \
      picom libnotify dunst slock jq aria2 cowsay  android-tools android-file-transfer tree lsd \
      dhcpcd connman wpa_supplicant rsync pamixer bluez bluez-utils networkmanager ncdu curl \
      zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig elinks vim ueberzug \
-     gvfs gvfs-afc gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb  gvfs-goa gvfs-google thunar
+     gvfs gvfs-afc gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb   thunar
      
+# gvfs-goa gvfs-google python-pywal
 
 systemctl enable NetworkManager.service 
 systemctl enable lightdm.service
