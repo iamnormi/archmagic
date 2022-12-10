@@ -3,7 +3,8 @@
 printf '\033c'
 echo "Welcome to iamvk1437k's arch installer script"
 sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 15/" /etc/pacman.conf
-pacman --noconfirm -Sy archlinux-keyring
+pacman --noconfirm -Sy archlinux-keyring reflector
+sudo reflector -c "IN" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
 loadkeys us
 timedatectl set-ntp true
 lsblk
@@ -54,6 +55,11 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 sed -i 's/quiet/pci=noaer/g' /etc/default/grub
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
+
+#Speedup Pacman
+pacman -Sy reflector
+reflector -c "IN" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
+
 
 
 pacman -S --noconfirm  ffmpeg \
