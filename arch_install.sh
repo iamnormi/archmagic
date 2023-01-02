@@ -62,15 +62,14 @@ reflector -c "IN" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
 
 pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
      noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
-     sxiv mpv zathura zathura-pdf-poppler ffmpeg virtualbox virtualbox-guest-iso firefox \
-     fzf man-db xwallpaper  unclutter xclip maim pulseaudio-bluetooth bluez neovim \
+     sxiv mpv zathura zathura-pdf-poppler ffmpeg pipewire pipewire-pulse  \
+     fzf man-db xwallpaper  unclutter xclip maim  bluez neovim \
      zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools \
-     dosfstools ntfs-3g git sxhkd zsh  pulseaudio firefox lightdm lightdm-gtk-greeter-settings \
-     qutebrowser dash  python-pip  make fakeroot patch virtualbox-host-modules-arch \
-     picom libnotify dunst slock jq aria2 cowsay  android-tools android-file-transfer tree lsd \
+     dosfstools ntfs-3g git sxhkd zsh firefox lightdm lightdm-gtk-greeter-settings \
+     qutebrowser dash  python-pip  make fakeroot patch  \
+      libnotify dunst slock jq aria2 android-tools android-file-transfer tree \
      dhcpcd connman wpa_supplicant rsync pamixer bluez bluez-utils networkmanager ncdu curl \
      zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig elinks vim ueberzug \
-     gvfs gvfs-afc gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb   thunar
 
 
 systemctl enable NetworkManager.service
@@ -99,15 +98,9 @@ rm -vrf ~/.config ; cp -vrf ~/.local/src/dotfiles/.config/ ~/
 cp -vrf ~/.local/src/dotfiles/.local/bin/ ~/.local/
 sudo mv -vf ~/.local/bin/dwm_bar /usr/local/bin
 sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
-sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/20-intel.conf /etc/X11/xorg.conf.d/30-touchpad.conf
-sudo cp -vrf ~/.local/src/dotfile/etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 sudo cp -vrf ~/.local/src/dotfiles/etc/default/grub /etc/default/grub
 sudo cp -vrf ~/.local/src/dotfiles/etc/pacman.conf /etc/pacman.conf
-sudo mkdir /usr/share/xsessions
-sudo touch /usr/share/xsessions/dwm.desktop
-sudo echo "[Desktop Entry]" > /usr/share/xsessions/dwm.desktop
-sudo echo "Name=DWM" >> /usr/share/xsessions/dwm.desktop
-sudo echo "Exec=dwm" >> /usr/share/xsessions/dwm.desktop
 
 
 # dwm: Window Manager
