@@ -10,23 +10,23 @@ timedatectl set-ntp true
 lsblk
 echo "Enter the drive: "
 read drive
-cfdisk $drive 
+cfdisk $drive
 echo "Enter the linux partition: "
 read partition
-mkfs.ext4 $partition 
+mkfs.ext4 $partition
 read -p "Did you also create efi partition? [y/n]" answer
 if [[ $answer = y ]] ; then
   echo "Enter EFI partition: "
   read efipartition
   mkfs.vfat -F 32 $efipartition
 fi
-mount $partition /mnt 
+mount $partition /mnt
 pacstrap /mnt base base-devel linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
 arch-chroot /mnt ./arch_install2.sh
-exit 
+exit
 
 #part2
 printf '\033c'
@@ -47,10 +47,10 @@ echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
 mkinitcpio -P
 passwd
 pacman --noconfirm -S grub efibootmgr os-prober
-echo "Enter EFI partition: " 
+echo "Enter EFI partition: "
 read efipartition
 mkdir /boot/efi
-mount $efipartition /boot/efi 
+mount $efipartition /boot/efi
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 sed -i 's/quiet/pci=noaer/g' /etc/default/grub
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
@@ -71,9 +71,9 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      dhcpcd connman wpa_supplicant rsync pamixer bluez bluez-utils networkmanager ncdu curl \
      zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig elinks vim ueberzug \
      gvfs gvfs-afc gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb   thunar
-     
 
-systemctl enable NetworkManager.service 
+
+systemctl enable NetworkManager.service
 systemctl enable lightdm.service
 rm /bin/sh
 ln -s dash /bin/sh
@@ -88,7 +88,7 @@ sed '1,/^#part3$/d' arch_install2.sh > $ai3_path
 chown $username:$username $ai3_path
 chmod +x $ai3_path
 su -c $ai3_path -s /bin/sh $username
-exit 
+exit
 
 #part3
 printf '\033c'
@@ -131,7 +131,7 @@ makepkg -fsri
 #install bat
 cd ~ ; bat_ver=$(curl -s "https://api.github.com/repos/tshakalekholoane/bat/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 cd ~ ; curl -Lo bat.zip "https://github.com/tshakalekholoane/bat/releases/download/${bat_ver}/bat.zip"
-cd ~ ; unzip bat.zip 
+cd ~ ; unzip bat.zip
 cd ~ ; sudo mv -v bat /usr/local/bin/ ; cd ~ ; rm -vrf bat.zip
 #setup
 cd /usr/local/bin/ ; sudo chmod +x bat ; sudo ./bat -t 60 ; sudo ./bat -p 60
@@ -151,7 +151,7 @@ sudo pacman -Syu xf86-video-intel vulkan-intel
 
 #Enabling Hardware video acceleration  (VA-API) vaapi
 
-sudo pacman -Syu libva-intel-driver libva-vdpau-driver  libvdpau-va-gl intel-gpu-tools libva-utils intel-media-driver 
+sudo pacman -Syu libva-intel-driver libva-vdpau-driver  libvdpau-va-gl intel-gpu-tools libva-utils intel-media-driver
 
 #Config vainfo
 export LIBVA_DRIVER_NAME=iHD
@@ -165,7 +165,7 @@ VDPAU_DRIVER=va_gl
 
 ###theming###
 
-sudo pacman -Sy  aria2 git curl unzip 
+sudo pacman -Sy  aria2 git curl unzip
 
 #gtk theme 'dracula'
 cd /usr/share/themes ; pwd ;sudo aria2c https://github.com/dracula/gtk/releases/download/v3.0/Dracula.tar.xz ; sudo tar -xvf Dracula.tar.xz ; sudo rm -v *.tar.xz ; cd
@@ -188,7 +188,7 @@ mkdir dl dox imp music pix pub code
 echo "paste it after installation of oh-my-zsh"
 echo  "mv ~/.oh-my-zsh ~/.config/zsh/oh-my-zsh ; rm ~/.zshrc ~/.zsh_history ; ln -sh ~/.config/zsh/.zshrc ~/.zshrc" |  xclip -selection clipboard
 
-
+ln -s ~/.config/x11/xinitrc .xinitrc
 ln -s ~/.config/shell/profile .xprofile
 ln -s ~/.config/vim/vimrc ~/.vimrc
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

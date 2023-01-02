@@ -103,7 +103,7 @@ mkdir dl dox imp music pix pub code
 echo "paste it after installation of oh-my-zsh"
 echo  "mv ~/.oh-my-zsh ~/.config/zsh/oh-my-zsh ; rm ~/.zshrc ~/.zsh_history ; ln -sh ~/.config/zsh/.zshrc ~/.zshrc" |  xclip -selection clipboard
 
-
+ln -s ~/.config/x11/xinitrc .xinitrc
 ln -s ~/.config/shell/profile .xprofile
 ln -s ~/.config/vim/vimrc ~/.vimrc
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
