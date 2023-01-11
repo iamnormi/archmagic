@@ -122,12 +122,22 @@ makepkg -fsri
 
 ###Some Install###
 #install bat
-cd ~ ; bat_ver=$(curl -s "https://api.github.com/repos/tshakalekholoane/bat/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-cd ~ ; curl -Lo bat.zip "https://github.com/tshakalekholoane/bat/releases/download/${bat_ver}/bat.zip"
-cd ~ ; unzip bat.zip
-cd ~ ; sudo mv -v bat /usr/local/bin/ ; cd ~ ; rm -vrf bat.zip
-#setup
-cd /usr/local/bin/ ; sudo chmod +x bat ; sudo ./bat -t 60 ; sudo ./bat -p 60
+bat_ver=$(curl -s "https://api.github.com/repos/tshakalekholoane/bat/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+cd /usr/local/bin ; sudo curl -Lo bat "https://github.com/tshakalekholoane/bat/releases/download/${bat_ver}/bat" ; sudo chmod +x bat ; sudo ./bat threshold 60 ; sudo ./bat persist 60
+
+#install Telegram from https://github.com/telegramdesktop/tdesktop/releases/ 
+#https://desktop.telegram.org/
+cd ~
+TG_VER=$(curl -s "https://api.github.com/repos/telegramdesktop/tdesktop/releases/latest" | grep -Po '"tag_name": "v\K[0-9.]+')
+curl -Lo tsetup.tar.xz "https://github.com/telegramdesktop/tdesktop/releases/download/v${TG_VER}/tsetup.${TG_VER}.tar.xz"
+tar -xvf tsetup.tar.xz ; mkdir -pv ~/.telegram ; cp -vrf Telegram/* ~/.telegram ; cd ; rm -vrf tsetup.tar.xz ; rm -vrf Telegram ; cd
+cd ~
+
+#install xdm from https://github.com/subhra74/xdm/releases
+cd ~
+XDM_VER=$(curl -s "https://api.github.com/repos/subhra74/xdm/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+curl -Lo xdm.tar.xz "https://github.com/subhra74/xdm/releases/download/${XDM_VER}/xdm-setup-${XDM_VER}.tar.xz"
+tar -xvf xdm.tar.xz ; sudo bash install.sh ; rm -v install.sh readme.txt xdm.tar.xz ; cd
 
 #Setup Intel itGPU
 sudo pacman -Syu xf86-video-intel vulkan-intel
@@ -175,7 +185,7 @@ cd ; curl -Lo lexend.zip https://fonts.google.com/download\?family\=Lexend ;  cd
 sudo mkdir /usr/share/backgrounds  ; cd /usr/share/backgrounds ; sudo aria2c https://github.com/dracula/wallpaper/raw/master/arch.png ; cd
 
 cd
-pikaur -S yt-dlp-drop-in nerd-fonts-jetbrains-mono ytfzf lexend-fonts-git xdman telegram-desktop-bin
+pikaur -S yt-dlp-drop-in nerd-fonts-jetbrains-mono ytfzf lexend-fonts-git
 mkdir dl dox imp music pix pub code
 
 echo "paste it after installation of oh-my-zsh"
