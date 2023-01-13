@@ -96,7 +96,6 @@ cd $HOME
 git clone --depth=1 https://github.com/iamvk1437k/dotfiles ~/.local/src/dotfiles
 rm -vrf ~/.config ; cp -vrf ~/.local/src/dotfiles/.config/ ~/
 cp -vrf ~/.local/src/dotfiles/.local/bin/ ~/.local/
-sudo mv -vf ~/.local/bin/dwm_bar /usr/local/bin
 sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 sudo cp -vrf ~/.local/src/dotfiles/etc/default/grub /etc/default/grub
@@ -125,7 +124,7 @@ makepkg -fsri
 bat_ver=$(curl -s "https://api.github.com/repos/tshakalekholoane/bat/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 cd /usr/local/bin ; sudo curl -Lo bat "https://github.com/tshakalekholoane/bat/releases/download/${bat_ver}/bat" ; sudo chmod +x bat ; sudo ./bat threshold 60 ; sudo ./bat persist 60
 
-#install Telegram from https://github.com/telegramdesktop/tdesktop/releases/ 
+#install Telegram from https://github.com/telegramdesktop/tdesktop/releases/
 #https://desktop.telegram.org/
 cd ~
 TG_VER=$(curl -s "https://api.github.com/repos/telegramdesktop/tdesktop/releases/latest" | grep -Po '"tag_name": "v\K[0-9.]+')
@@ -194,6 +193,11 @@ echo  "mv ~/.oh-my-zsh ~/.config/zsh/oh-my-zsh ; rm ~/.zshrc ~/.zsh_history ; ln
 ln -s ~/.config/x11/xinitrc .xinitrc
 ln -s ~/.config/shell/profile .xprofile
 ln -s ~/.config/vim/vimrc ~/.vimrc
+sudo ln -s ~/.local/bin/bookmarkthis /usr/local/bin/bkthis
+sudo ln -s ~/.local/bin/dwm_bar /usr/local/bin/dwm_bar
+sudo ln -s ~/.local/bin/mpv-gui /usr/local/bin/mpv-gui
+sudo ln -s ~/.local/bin/system_action /usr/local/bin/system_action
+sudo ln -s ~/.telegram/Telegram /usr/local/bin/telegram
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 exit
