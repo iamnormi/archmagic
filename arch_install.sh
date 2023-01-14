@@ -65,7 +65,7 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      sxiv mpv zathura zathura-pdf-poppler ffmpeg pipewire pipewire-pulse  \
      fzf man-db xwallpaper  unclutter xclip maim  bluez neovim \
      zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools \
-     dosfstools ntfs-3g git sxhkd zsh firefox lightdm lightdm-gtk-greeter-settings \
+     dosfstools ntfs-3g git sxhkd zsh firefox  \
      qutebrowser dash  python-pip  make fakeroot patch  \
       libnotify dunst slock jq aria2 android-tools android-file-transfer tree \
      dhcpcd connman wpa_supplicant rsync pamixer bluez bluez-utils networkmanager ncdu curl \
