@@ -65,7 +65,7 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      sxiv mpv zathura zathura-pdf-poppler ffmpeg pipewire pipewire-pulse  \
      fzf man-db xwallpaper  unclutter xclip maim  bluez neovim \
      zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools \
-     dosfstools ntfs-3g git sxhkd zsh firefox  \
+     dosfstools ntfs-3g git sxhkd zsh firefox  ttf-jetbrains-mono-nerd \
      qutebrowser dash  python-pip  make fakeroot patch  \
       libnotify dunst slock jq aria2 android-tools android-file-transfer tree \
      dhcpcd connman wpa_supplicant rsync pamixer bluez bluez-utils networkmanager ncdu curl \
@@ -103,15 +103,15 @@ sudo cp -vrf ~/.local/src/dotfiles/etc/pacman.conf /etc/pacman.conf
 
 
 # dwm: Window Manager
-git clone --depth=1 https://github.com/iamvk1437k/dwm.git ~/.local/src/dwm
+git clone https://github.com/iamvk1437k/dwm.git ~/.local/src/dwm
 sudo make -C ~/.local/src/dwm install
 
 # st: Terminal
-git clone --depth=1 https://github.com/iamvk1437k/st.git ~/.local/src/st
+git clone https://github.com/iamvk1437k/st.git ~/.local/src/st
 sudo make -C ~/.local/src/st install
 
 # dmenu: Program Menu
-git clone --depth=1 https://github.com/iamvk1437k/dmenu.git ~/.local/src/dmenu
+git clone https://github.com/iamvk1437k/dmenu.git ~/.local/src/dmenu
 sudo make -C ~/.local/src/dmenu install
 
 # pikaur: AUR helper
@@ -184,7 +184,7 @@ cd ; curl -Lo lexend.zip https://fonts.google.com/download\?family\=Lexend ;  cd
 sudo mkdir /usr/share/backgrounds  ; cd /usr/share/backgrounds ; sudo aria2c https://github.com/dracula/wallpaper/raw/master/arch.png ; cd
 
 cd
-pikaur -S yt-dlp-drop-in nerd-fonts-jetbrains-mono ytfzf lexend-fonts-git
+pikaur -S yt-dlp-drop-in  ytfzf lexend-fonts-git
 mkdir dl dox imp music pix pub code
 
 echo "paste it after installation of oh-my-zsh"
