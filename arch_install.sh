@@ -190,8 +190,6 @@ echo "Type this after ssh install "
 echo  "mv ~/.oh-my-zsh ~/.config/zsh/oh-my-zsh ; rm ~/.zshrc ~/.zsh_history ; ln -sh ~/.config/zsh/.zshrc ~/.zshrc
 
 ln -s ~/.config/x11/xinitrc .xinitrc
-ln -s ~/.config/shell/profile .xprofile
-ln -s ~/.config/vim/vimrc ~/.vimrc
 sudo ln -s ~/.local/bin/bookmarkthis /usr/local/bin/bkthis
 sudo ln -s ~/.local/bin/dwm_bar /usr/local/bin/dwm_bar
 sudo ln -s ~/.local/bin/mpv-gui /usr/local/bin/mpv-gui
