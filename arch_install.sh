@@ -188,7 +188,7 @@ pikaur -S yt-dlp-drop-in  ytfzf lexend-fonts-git
 mkdir dl dox imp music pix pub code
 
 echo "Type this after ssh install "
-echo  "mv ~/.oh-my-zsh ~/.config/zsh/oh-my-zsh ; rm ~/.zshrc ~/.zsh_history ; ln -sh ~/.config/zsh/.zshrc ~/.zshrc
+echo  "mv ~/.oh-my-zsh ~/.config/zsh/oh-my-zsh ; rm ~/.zshrc ~/.zsh_history ; ln -sh ~/.config/zsh/.zshrc ~/.zshrc"
 
 ln -s ~/.config/x11/xinitrc .xinitrc
 sudo ln -s ~/.local/bin/bookmarkthis /usr/local/bin/bkthis
