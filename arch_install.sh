@@ -139,7 +139,7 @@ curl -Lo xdm.tar.xz "https://github.com/subhra74/xdm/releases/download/${XDM_VER
 tar -xvf xdm.tar.xz ; sudo bash install.sh ; rm -v install.sh readme.txt xdm.tar.xz ; cd
 
 #Setup Intel itGPU
-sudo pacman -Sy  --no-confirm xf86-video-intel vulkan-intel
+sudo pacman -Sy  --noconfirm xf86-video-intel vulkan-intel
 
 #Create A config And Cofigure it Backup of Actual config Given below:
 
@@ -153,7 +153,7 @@ sudo pacman -Sy  --no-confirm xf86-video-intel vulkan-intel
 
 #Enabling Hardware video acceleration  (VA-API) vaapi
 
-sudo pacman -Sy --no-confirm  libva-intel-driver libva-vdpau-driver  libvdpau-va-gl intel-gpu-tools libva-utils intel-media-driver
+sudo pacman -Sy --noconfirm  libva-intel-driver libva-vdpau-driver  libvdpau-va-gl intel-gpu-tools libva-utils intel-media-driver
 
 #Config vainfo
 export LIBVA_DRIVER_NAME=iHD
