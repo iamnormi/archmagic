@@ -1,3 +1,4 @@
+#!/bin/sh
 # == MY ARCH SETUP INSTALLER == #
 #part1
 printf '\033c'
@@ -66,7 +67,7 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools \
      dosfstools ntfs-3g git sxhkd zsh firefox  ttf-jetbrains-mono-nerd \
      qutebrowser dash  python-pip  make fakeroot patch  newsboat scrcpy wget \
-      libnotify dunst slock jq aria2 android-tools android-file-transfer tree \
+      libnotify dunst slock jq aria2 android-tools android-file-transfer tree polkit \
      dhcpcd connman wpa_supplicant rsync pamixer bluez bluez-utils networkmanager ncdu curl \
      zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig elinks vim ueberzug \
 
