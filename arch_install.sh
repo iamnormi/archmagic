@@ -3,8 +3,7 @@
 printf '\033c'
 echo "Welcome to iamvk1437k's arch installer script"
 sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 15/" /etc/pacman.conf
-pacman --noconfirm -Sy archlinux-keyring reflector
-sudo reflector -c "IN" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
+pacman --noconfirm -Sy archlinux-keyring
 loadkeys us
 timedatectl set-ntp true
 lsblk
@@ -73,7 +72,6 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
 
 
 systemctl enable NetworkManager.service
-systemctl enable lightdm.service
 rm /bin/sh
 ln -s dash /bin/sh
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
