@@ -56,7 +56,7 @@ sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
 #Speedup Pacman
-pacman -Sy reflector
+pacman -Sy noconfirm reflector
 reflector -c "IN" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
 
 pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
@@ -65,7 +65,7 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      fzf man-db xwallpaper  unclutter xclip maim  bluez neovim \
      zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools \
      dosfstools ntfs-3g git sxhkd zsh firefox  ttf-jetbrains-mono-nerd \
-     qutebrowser dash  python-pip  make fakeroot patch  newsboat scrcpy \
+     qutebrowser dash  python-pip  make fakeroot patch  newsboat scrcpy wget \
       libnotify dunst slock jq aria2 android-tools android-file-transfer tree \
      dhcpcd connman wpa_supplicant rsync pamixer bluez bluez-utils networkmanager ncdu curl \
      zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig elinks vim ueberzug \
@@ -91,14 +91,15 @@ exit
 printf '\033c'
 cd $HOME
 #dotfiles
-git clone --depth=1 https://github.com/iamvk1437k/dotfiles ~/.local/src/dotfiles
+git clone https://github.com/iamvk1437k/dotfiles ~/.local/src/dotfiles
 rm -vrf ~/.config ; cp -vrf ~/.local/src/dotfiles/.config/ ~/
 cp -vrf ~/.local/src/dotfiles/.local/bin/ ~/.local/
 sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 sudo cp -vrf ~/.local/src/dotfiles/etc/default/grub /etc/default/grub
 sudo cp -vrf ~/.local/src/dotfiles/etc/pacman.conf /etc/pacman.conf
-
+sudo mkdir -pv /etc/NetworkManager/conf.d/
+sudo cp -vrf ~/.local/src/dotfiles/etc/NetworkManager/conf.d/any-user.conf /etc/NetworkManager/conf.d/any-user.conf 
 
 # dwm: Window Manager
 git clone https://github.com/iamvk1437k/dwm.git ~/.local/src/dwm
@@ -165,7 +166,7 @@ VDPAU_DRIVER=va_gl
 
 ###theming###
 
-sudo pacman -Sy  aria2 git curl unzip
+sudo pacman -Sy --noconfirm  aria2 git curl unzip
 
 #gtk theme 'dracula'
 cd /usr/share/themes ; pwd ;sudo aria2c https://github.com/dracula/gtk/releases/download/v3.0/Dracula.tar.xz ; sudo tar -xvf Dracula.tar.xz ; sudo rm -v *.tar.xz ; cd
@@ -185,8 +186,8 @@ cd
 pikaur -S yt-dlp-drop-in  ytfzf lexend-fonts-git
 mkdir dl dox imp music pix pub code
 
-echo "paste it after installation of oh-my-zsh"
-echo  "mv ~/.oh-my-zsh ~/.config/zsh/oh-my-zsh ; rm ~/.zshrc ~/.zsh_history ; ln -sh ~/.config/zsh/.zshrc ~/.zshrc" |  xclip -selection clipboard
+echo "Type this after ssh install "
+echo  "mv ~/.oh-my-zsh ~/.config/zsh/oh-my-zsh ; rm ~/.zshrc ~/.zsh_history ; ln -sh ~/.config/zsh/.zshrc ~/.zshrc
 
 ln -s ~/.config/x11/xinitrc .xinitrc
 ln -s ~/.config/shell/profile .xprofile
