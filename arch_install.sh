@@ -62,10 +62,11 @@ reflector -c "IN" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
 
 pacman -Sy --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
      noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
-     sxiv mpv zathura zathura-pdf-poppler ffmpeg pipewire pipewire-pulse  xcompmgr \
+     adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts \
+     sxiv mpv zathura zathura-pdf-poppler ffmpeg pipewire pipewire-pulse  xcompmgr ttf-dejavu \
      fzf man-db xwallpaper  unclutter xclip maim  bluez neovim  ntp reflector rclone \
      zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools \
-     dosfstools ntfs-3g git sxhkd zsh firefox  ttf-jetbrains-mono-nerd \
+     dosfstools ntfs-3g git sxhkd zsh firefox  ttf-jetbrains-mono-nerd ttf-liberation \
      qutebrowser dash  python-pip  make fakeroot patch  newsboat scrcpy wget \
       libnotify dunst slock jq aria2 android-tools android-file-transfer tree polkit \
      dhcpcd connman wpa_supplicant rsync pamixer bluez bluez-utils networkmanager ncdu curl \
