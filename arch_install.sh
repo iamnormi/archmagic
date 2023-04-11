@@ -116,8 +116,8 @@ git clone https://github.com/iamvk1437k/dmenu.git ~/.local/src/dmenu
 sudo make -C ~/.local/src/dmenu install
 
 # pikaur: AUR helper
-git clone https://aur.archlinux.org/pikaur.git
-cd pikaur
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin
 makepkg -fsri
 
 ###Some Install###
@@ -182,10 +182,10 @@ cd ; curl -Lo lexend.zip https://fonts.google.com/download\?family\=Lexend ;  cd
 
 
 #wallpaper
-sudo mkdir /usr/share/backgrounds  ; cd /usr/share/backgrounds ; sudo aria2c https://github.com/dracula/wallpaper/raw/master/arch.png ; cd
+sudo mkdir /usr/share/backgrounds  ; cd /usr/share/backgrounds ; sudo aria2c https://raw.githubusercontent.com/dracula/wallpaper/master/first-collection/arch.png ; cd
 
 cd
-pikaur -S yt-dlp-drop-in  ytfzf lexend-fonts-git
+yay -S yt-dlp-drop-in  ytfzf lexend-fonts-git
 mkdir dl dox imp music pix pub code
 
 echo "Type this after ssh install "
