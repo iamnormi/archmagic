@@ -171,10 +171,10 @@ VDPAU_DRIVER=va_gl
 sudo pacman -Sy --noconfirm  aria2 git curl unzip
 
 #gtk theme 'dracula'
-cd /usr/share/themes ; pwd ;sudo aria2c https://github.com/dracula/gtk/releases/download/v3.0/Dracula.tar.xz ; sudo tar -xvf Dracula.tar.xz ; sudo rm -v *.tar.xz ; cd
+cd /usr/share/themes ; pwd ;sudo aria2c https://github.com/dracula/gtk/releases/download/v4.0.0/Dracula.tar.xz ; sudo tar -xvf Dracula.tar.xz ; sudo rm -v *.tar.xz ; cd
 
 #icons 'dracula-icons' & #cursor theme 'dracula-cursors'
-cd /usr/share/icons ; pwd ; sudo aria2c https://github.com/dracula/gtk/releases/download/v3.0/Dracula-cursors.tar.xz ; sudo git clone https://github.com/m4thewz/dracula-icons ; sudo rm -vrf dracula-icons/.git ; sudo rm -v dracula-icons/Preview.png ; sudo tar -vxf Dracula-cursors.tar.xz ; sudo rm -v *.tar.xz ; cd
+cd /usr/share/icons ; pwd ; sudo aria2c https://github.com/dracula/gtk/releases/download/v4.0.0/Dracula-cursors.tar.xz ; sudo git clone https://github.com/m4thewz/dracula-icons ; sudo rm -vrf dracula-icons/.git ; sudo rm -v dracula-icons/Preview.png ; sudo tar -vxf Dracula-cursors.tar.xz ; sudo rm -v *.tar.xz ; cd
 sudo gtk-update-icon-cache /usr/share/icons/dracula-icons/
 
 #lexend font
