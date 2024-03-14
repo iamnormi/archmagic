@@ -66,7 +66,7 @@ pacman -Sy --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbac
      sxiv mpv zathura zathura-pdf-poppler ffmpeg pipewire pipewire-pulse  xcompmgr ttf-dejavu \
      fzf man-db xwallpaper  unclutter xclip maim  bluez neovim  ntp reflector rclone \
      zip unzip unrar p7zip xdotool brightnessctl  pkg-config blueman htop  net-tools \
-     dosfstools ntfs-3g git sxhkd zsh firefox  ttf-jetbrains-mono-nerd ttf-liberation \
+     dosfstools ntfs-3g git sxhkd zsh  ttf-jetbrains-mono-nerd ttf-liberation telegram-desktop \
      qutebrowser dash  python-pip  make fakeroot patch  newsboat scrcpy wget \
       libnotify dunst slock jq aria2 android-tools android-file-transfer tree polkit \
      dhcpcd connman wpa_supplicant rsync pamixer bluez bluez-utils networkmanager ncdu curl \
@@ -125,14 +125,6 @@ makepkg -fsri
 bat_ver=$(curl -s "https://api.github.com/repos/tshakalekholoane/bat/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 cd /usr/local/bin ; sudo curl -Lo bat "https://github.com/tshakalekholoane/bat/releases/download/${bat_ver}/bat" ; sudo chmod +x bat ; sudo ./bat threshold 60 ; sudo ./bat persist 60
 
-#install Telegram from https://github.com/telegramdesktop/tdesktop/releases/
-#https://desktop.telegram.org/
-cd ~
-TG_VER=$(curl -s "https://api.github.com/repos/telegramdesktop/tdesktop/releases/latest" | grep -Po '"tag_name": "v\K[0-9.]+')
-curl -Lo tsetup.tar.xz "https://github.com/telegramdesktop/tdesktop/releases/download/v${TG_VER}/tsetup.${TG_VER}.tar.xz"
-tar -xvf tsetup.tar.xz ; mkdir -pv ~/.telegram ; cp -vrf Telegram/* ~/.telegram ; cd ; rm -vrf tsetup.tar.xz ; rm -vrf Telegram ; cd
-cd ~
-
 #install xdm from https://github.com/subhra74/xdm/releases
 cd ~
 XDM_VER=$(curl -s "https://api.github.com/repos/subhra74/xdm/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
@@ -185,7 +177,7 @@ cd ; curl -Lo lexend.zip https://fonts.google.com/download\?family\=Lexend ;  cd
 sudo mkdir /usr/share/backgrounds  ; cd /usr/share/backgrounds ; sudo aria2c https://raw.githubusercontent.com/dracula/wallpaper/master/first-collection/arch.png ; cd
 
 cd
-yay -S yt-dlp-drop-in  ytfzf lexend-fonts-git
+yay -S yt-dlp-drop-in  ytfzf lexend-fonts-git librewolf-bin
 mkdir dl dox imp music pix pub code
 
 echo "Type this after ssh install "

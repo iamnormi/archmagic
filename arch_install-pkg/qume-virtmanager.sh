@@ -1,11 +1,9 @@
 #!/bin/sh
 
-#made from YT-video id=wxxP39cNJOs
+##########################made from YT-video id=wxxP39cNJOs
 sudo pacman -Sy
-##install gnome desktop needed app: nautilus, gnome-disks
-sudo pacman -S nautilus gnome-disk-utility  gvfs gvfs-afc gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb sshfs
 
-##Install kvm, virt-manager. 
+##Install kvm, virt-manager.
 sudo pacman -S qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs dmidecode
 
 #start the services
@@ -19,6 +17,4 @@ vim /etc/libvirt/libvirtd.conf
 
 #add required users (to work all user with root)
 sudo usermod -aG libvirt arch
-
-
 
