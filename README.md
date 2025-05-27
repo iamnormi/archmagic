@@ -1,7 +1,7 @@
 # archmagic
-My archlinux install script.
+My archlinux bootstrap script.
 
-## Dev = 1'43
+## Dev == Normi
 These codes was maintained by [**iamNormi**](https://github.com/iamNormi).
 
 [![iamNormi](https://github.com/iamNormi.png?size=100)](https://github.com/iamNormi) |
