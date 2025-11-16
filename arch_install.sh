@@ -170,7 +170,7 @@ cd /usr/share/icons ; pwd ; sudo aria2c https://github.com/dracula/gtk/releases/
 sudo gtk-update-icon-cache /usr/share/icons/dracula-icons/
 
 #lexend font
-cd ; curl -Lo lexend.zip https://fonts.google.com/download\?family\=Lexend ;  cd ; unzip -d lexend lexend.zip ; cd ; sudo mkdir -pv /usr/share/fonts/truetype/lexend ; sudo cp -vrf ~/lexend/static/* /usr/share/fonts/truetype/lexend ; cd ; rm -vrf lexend*
+cd ; curl -Lo lexend.zip "https://fonts.google.com/download?family=Lexend" ;  cd ; unzip -d lexend lexend.zip ; cd ; sudo mkdir -pv /usr/share/fonts/truetype/lexend ; sudo cp -vrf ~/lexend/static/* /usr/share/fonts/truetype/lexend ; cd ; rm -vrf lexend*
 
 
 #wallpaper
