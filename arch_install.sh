@@ -70,7 +70,7 @@ pacman -Sy --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbac
      qutebrowser dash  python-pip  make fakeroot patch  newsboat scrcpy wget \
       libnotify dunst slock jq aria2 android-tools android-file-transfer tree polkit \
      dhcpcd connman wpa_supplicant rsync pamixer bluez bluez-utils networkmanager ncdu curl \
-     zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig elinks vim ueberzug \
+     zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig elinks vim ueberzug 
 
 
 systemctl enable NetworkManager.service
