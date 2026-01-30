@@ -22,7 +22,7 @@ if [[ $answer = y ]] ; then
   read efipartition
   mkfs.vfat -F 32 $efipartition
 fi
-mount /dev/mapper/root /mnt
+mount $partition /mnt
 pacstrap /mnt base base-devel linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
@@ -46,13 +46,7 @@ echo $hostname > /etc/hostname
 echo "127.0.0.1       localhost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
-
-sed -i 's/^HOOKS=(.*/HOOKS=(base systemd autodetect microcode modconf kms keyboard keymap sd-vconsole block sd-encrypt filesystems fsck)/' /etc/mkinitcpio.conf
 mkinitcpio -P
-ROOT_SRC=$(findmnt -n -o SOURCE /)
-LUKS_DEV=$(cryptsetup status "$ROOT_SRC" | awk '/device:/ {print $2}')
-LUKS_UUID=$(cryptsetup luksUUID "$LUKS_DEV")
-KERNEL_PARAMS="cryptdevice=UUID=$LUKS_UUID:root root=/dev/mapper/root"
 passwd
 pacman --noconfirm -S grub efibootmgr os-prober
 echo "Enter EFI partition: "
@@ -62,7 +56,12 @@ mount $efipartition /boot/efi
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 sed -i 's/quiet/pci=noaer/g' /etc/default/grub
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
-sed -i "s|^GRUB_CMDLINE_LINUX=\"|GRUB_CMDLINE_LINUX=\"$KERNEL_PARAMS |" /etc/default/grub
+echo "Enter the linux partition: "
+read partition
+LUKS_DISK_UUID=$(blkid -o value -s UUID "$partition")
+LUKS_PART_UUID=$(blkid -o value -s UUID /dev/mapper/root)
+KERNEL_PARAMS="pci=noaer cryptdevice=UUID=$LUKS_DISK_UUID:root root=UUID=$LUKS_PART_UUID"
+sed -i "s|^GRUB_CMDLINE_LINUX_DEFAULT=\"|GRUB_CMDLINE_LINUX_DEFAULT=\"$KERNEL_PARAMS |" /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
 #Speedup Pacman
@@ -79,7 +78,7 @@ pacman -Sy --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbac
      qutebrowser dash  python-pip  make fakeroot patch  newsboat scrcpy wget \
       libnotify dunst slock jq aria2 android-tools android-file-transfer tree polkit \
      dhcpcd connman wpa_supplicant rsync pamixer bluez bluez-utils networkmanager ncdu curl \
-     zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig elinks vim ueberzug 
+     mesa-utils zsh-syntax-highlighting zsh-autosuggestions  xdg-user-dirs libconfig elinks vim ueberzug 
 
 
 systemctl enable NetworkManager.service
@@ -105,8 +104,6 @@ cd $HOME
 git clone https://github.com/iamnormi/dotfiles ~/.local/src/dotfiles
 rm -vrf ~/.config ; cp -vrf ~/.local/src/dotfiles/.config/ ~/
 cp -vrf ~/.local/src/dotfiles/.local/bin/ ~/.local/
-sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
-sudo cp -vrf ~/.local/src/dotfiles/etc/X11/xorg.conf.d/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 sudo cp -vrf ~/.local/src/dotfiles/etc/default/grub /etc/default/grub
 sudo cp -vrf ~/.local/src/dotfiles/etc/pacman.conf /etc/pacman.conf
 sudo mkdir -pv /etc/NetworkManager/conf.d/
@@ -130,42 +127,12 @@ cd yay-bin
 makepkg -fsri
 
 ###Some Install###
-#install bat
-bat_ver=$(curl -s "https://api.github.com/repos/tshakalekholoane/bat/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-cd /usr/local/bin ; sudo curl -Lo bat "https://github.com/tshakalekholoane/bat/releases/download/${bat_ver}/bat" ; sudo chmod +x bat ; sudo ./bat threshold 60 ; sudo ./bat persist 60
 
 #install xdm from https://github.com/subhra74/xdm/releases
 cd ~
 XDM_VER=$(curl -s "https://api.github.com/repos/subhra74/xdm/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 curl -Lo xdm.tar.xz "https://github.com/subhra74/xdm/releases/download/${XDM_VER}/xdm-setup-${XDM_VER}.tar.xz"
 tar -xvf xdm.tar.xz ; sudo bash install.sh ; rm -v install.sh readme.txt xdm.tar.xz ; cd
-
-#Setup Intel itGPU
-sudo pacman -Sy  --noconfirm xf86-video-intel vulkan-intel
-
-#Create A config And Cofigure it Backup of Actual config Given below:
-
-#file location: /etc/X11/xorg.conf.d/20-intel.conf
-#      Section "Device"
-#        Identifier  "Intel Graphics"
-#        Driver      "intel"
-#        Option      "DRI" "3"             # DRI3 is now default
-#        Option      "AccelMethod"  "uxa"
-#      EndSection
-
-#Enabling Hardware video acceleration  (VA-API) vaapi
-
-sudo pacman -Sy --noconfirm  libva-intel-driver libva-vdpau-driver  libvdpau-va-gl intel-gpu-tools libva-utils intel-media-driver
-
-#Config vainfo
-export LIBVA_DRIVER_NAME=iHD
-
-#Config vdpauinfo
-VDPAU_DRIVER=va_gl
-
-#Enable Hardware Video Acceleration (VA-API) For Firefox
-#https://ubuntuhandbook.org/index.php/2021/08/enable-hardware-video-acceleration-va-api-for-firefox-in-ubuntu-20-04-18-04-higher/
-
 
 ###theming###
 
