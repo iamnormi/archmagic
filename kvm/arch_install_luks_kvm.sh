@@ -101,7 +101,7 @@ exit
 printf '\033c'
 cd $HOME
 #dotfiles
-git clone https://github.com/iamnormi/dotfiles ~/.local/src/dotfiles
+git clone https://github.com/iamnormi/dotfiles-kvm --depth 1 ~/.local/src/dotfiles
 rm -vrf ~/.config ; cp -vrf ~/.local/src/dotfiles/.config/ ~/
 cp -vrf ~/.local/src/dotfiles/.local/bin/ ~/.local/
 sudo cp -vrf ~/.local/src/dotfiles/etc/default/grub /etc/default/grub
@@ -110,15 +110,15 @@ sudo mkdir -pv /etc/NetworkManager/conf.d/
 sudo cp -vrf ~/.local/src/dotfiles/etc/NetworkManager/conf.d/any-user.conf /etc/NetworkManager/conf.d/any-user.conf 
 
 # dwm: Window Manager
-git clone https://github.com/iamnormi/dwm.git ~/.local/src/dwm
+git clone https://github.com/iamnormi/dwm.git --depth 1 ~/.local/src/dwm
 sudo make -C ~/.local/src/dwm install
 
 # st: Terminal
-git clone https://github.com/iamnormi/st.git ~/.local/src/st
+git clone https://github.com/iamnormi/st.git --depth 1 ~/.local/src/st
 sudo make -C ~/.local/src/st install
 
 # dmenu: Program Menu
-git clone https://github.com/iamnormi/dmenu.git ~/.local/src/dmenu
+git clone https://github.com/iamnormi/dmenu.git --depth 1 ~/.local/src/dmenu
 sudo make -C ~/.local/src/dmenu install
 
 # pikaur: AUR helper
