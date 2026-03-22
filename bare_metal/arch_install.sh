@@ -146,7 +146,7 @@ sudo pacman -Sy  --noconfirm xf86-video-intel vulkan-intel
 
 #Enabling Hardware video acceleration  (VA-API) vaapi
 
-sudo pacman -Sy --noconfirm  libva-intel-driver libva-vdpau-driver  libvdpau-va-gl intel-gpu-tools libva-utils intel-media-driver
+sudo pacman -Sy --noconfirm  libva-intel-driver  libvdpau-va-gl intel-gpu-tools libva-utils intel-media-driver
 
 #Config vainfo
 export LIBVA_DRIVER_NAME=iHD
