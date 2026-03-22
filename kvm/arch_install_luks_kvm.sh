@@ -53,6 +53,7 @@ echo "Enter EFI partition: "
 read efipartition
 mkdir /boot/efi
 mount $efipartition /boot/efi
+sed -i '/^#\?GRUB_ENABLE_CRYPTODISK=/c\GRUB_ENABLE_CRYPTODISK=y' /etc/default/grub
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 sed -i 's/quiet/pci=noaer/g' /etc/default/grub
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
